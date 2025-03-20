@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player;
     public GameObject moneyPrefab;
-    private AudioSource enemyAudio;
+    protected AudioSource enemyAudio;
     public AudioClip deathAudio;
     public ParticleSystem deathParticle;
 
@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour
         }   
     }
 
-    public void Death()
+    public virtual void Death()
     {
         enemyAudio.PlayOneShot(deathAudio, 0.7f);
         var effect = Instantiate(deathParticle, transform.position, Quaternion.identity);

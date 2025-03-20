@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4992764876539489949}
   - component: {fileID: 694022055855278324}
   - component: {fileID: 8224050877847957612}
-  - component: {fileID: 5815186395724353085}
   - component: {fileID: -4654937021996162970}
+  - component: {fileID: 5821115443412345967}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -139,26 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
---- !u!114 &5815186395724353085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025120572210038383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750e2178372ecda408a7d803c517be5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyPrefab: {fileID: 1843071052962173285, guid: d2a4cac800d0a83499f2aff9b9e4fade, type: 3}
-  deathAudio: {fileID: 8300000, guid: dc028d92bd81f4023ae9b67676dad909, type: 3}
-  deathParticle: {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
-  speed: 3
-  dmg: 2
-  hp: 3
-  knockbackForce: 15
-  knockbackDuration: 0.3
 --- !u!82 &-4654937021996162970
 AudioSource:
   m_ObjectHideFlags: 0
@@ -256,6 +236,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5821115443412345967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025120572210038383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e1ade8de86a5f49afa6e31b93a32c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyPrefab: {fileID: 1843071052962173285, guid: d2a4cac800d0a83499f2aff9b9e4fade, type: 3}
+  deathAudio: {fileID: 8300000, guid: dc028d92bd81f4023ae9b67676dad909, type: 3}
+  deathParticle: {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
+  speed: 3
+  dmg: 2
+  hp: 3
+  knockbackForce: 15
+  knockbackDuration: 0.3
 --- !u!1001 &3808604786440695005
 PrefabInstance:
   m_ObjectHideFlags: 0

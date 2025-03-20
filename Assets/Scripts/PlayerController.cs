@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float zBound = 24;
     private float xBound = 24;
 
+
     private int hp;
     private int maxHp;
     private int dashPoints;
@@ -64,26 +65,12 @@ public class PlayerController : MonoBehaviour
         // Handle dash input
         if (Input.GetKeyDown(KeyCode.Space) && !isDashing && dashPoints >= 5)
         {
+            // ABSTRACTION
             StartDash();
         }
 
-        if (transform.position.z < -zBound)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
-        }
-        else if (transform.position.x < -xBound)
-        {
-            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
-        }
-
-        if (transform.position.z > zBound)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
-        }
-        else if (transform.position.x > xBound)
-        {
-            transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
-        }
+        // ABSTRACTION
+        CheckBoundries();
 
         // recharge Dashboard
         if (dashPoints < 10 && !isDashbarRecharhing)
@@ -93,8 +80,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            // ABSTRACTION
             ShootBullet();
-
         }
     }
 
@@ -116,6 +103,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION hp is a private variable and it can be adjusted by calling public method not dirretcly
     public void SetHp(int hpAdjustion)
     {
         hp += hpAdjustion;
@@ -139,6 +127,7 @@ public class PlayerController : MonoBehaviour
         return dmg;
     }
 
+    // ABSTRACTION
     void StartDash()
     {
         isDashing = true;
@@ -148,6 +137,7 @@ public class PlayerController : MonoBehaviour
         dashDirection = moveInput == Vector3.zero ? transform.forward : moveInput;
     }
 
+    // ABSTRACTION
     void ShootBullet()
     {
         // Instantiate the bullet at the shooting point's position and rotation
@@ -168,6 +158,28 @@ public class PlayerController : MonoBehaviour
     void EndDash()
     {
         isDashing = false;
+    }
+
+    // ABSTRACTION
+    void CheckBoundries()
+    {
+        if (transform.position.z < -zBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
+        }
+        else if (transform.position.x < -xBound)
+        {
+            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z > zBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+        }
+        else if (transform.position.x > xBound)
+        {
+            transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
+        }
     }
 
     IEnumerator RechargeDashbar()
